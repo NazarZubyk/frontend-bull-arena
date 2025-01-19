@@ -1,1 +1,3 @@
-export const Matador = () => <div>i am matador</div>
+export const Matador = () =>{
+    return <div>i am matador</div>
+}
