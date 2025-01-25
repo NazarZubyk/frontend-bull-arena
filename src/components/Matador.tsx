@@ -1,7 +1,8 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 export const Matador = ({applause, setMatarodPosition, matadorPosition}) =>{
 
+    const loggedRef = useRef(false)
 
 
     useEffect(() => {
@@ -9,12 +10,17 @@ export const Matador = ({applause, setMatarodPosition, matadorPosition}) =>{
         const handleBullRun = (e)=>{
        
             if(matadorPosition === e.detail.position){
-                console.log('i am matador')
                 let newPosition = e.detail.position + 1
                 if(newPosition > 8){
                     newPosition = 0
                 } 
                 setMatarodPosition(newPosition)
+                if(!loggedRef.current){
+                    console.log(`from ${e.detail.position} to ${newPosition}`);
+                    loggedRef.current = true;
+                }else{
+                    loggedRef.current = false
+                }
             }
         }
 
