@@ -15,11 +15,7 @@ export const Matador = ({applause, setMatarodPosition, matadorPosition}) =>{
     const previousApplaus = useRef(applause)
 
     useEffect(() => {
-
-        
-
         if(previousApplaus.current !== 3 && previousApplaus.current === applause){
-            
             audio[applause].play();
             previousApplaus.current = applause;
         }else if (previousApplaus.current === 3 && previousApplaus.current === applause){
